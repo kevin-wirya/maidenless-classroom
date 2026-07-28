@@ -256,8 +256,6 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
     Jadi, populasi bakteri pada jam ke-8 adalah \fbox{12.866 bakteri}.
 \end{enumerate}
 
-\vspace{0.5cm}
-
 \subsection*{Soal 9 [Teori Bilangan -- Chinese Remainder Theorem]}
 \textbf{Solusi:}
 
@@ -324,8 +322,6 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
     Jadi, seluruh nilai $x$ yang memenuhi dalam rentang tersebut adalah \fbox{\{1103, 2039, 2975\}}.
 \end{enumerate}
 
-\vspace{0.5cm}
-
 \subsection*{Soal 10 [Kombinatorika -- Kombinasi dan Inklusi-Eksklusi]}
 \textbf{Solusi:}
 
@@ -353,12 +349,12 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
         Misal $x_3' = x_3 - 6 \ge 0 \implies x_1' + x_2 + x_3' + x_4' + x_5 = 15$:
         \[ |A_2| = \binom{15+5-1}{5-1} = \binom{19}{4} = \frac{19 \times 18 \times 17 \times 16}{24} = 3.876 \]
 
-        \item Pelanggaran $A_1 \cap A_2$ ($x_2 \geq 5$ dan $x_3 \geq 6$):
+    \item Pelanggaran $A_1 \cap A_2$ ($x_2 \geq 5$ dan $x_3 \geq 6$):
         $x_1' + x_2' + x_3' + x_4' + x_5 = 21 - 5 - 6 = 10$:
         \[ |A_1 \cap A_2| = \binom{10+5-1}{5-1} = \binom{14}{4} = \frac{14 \times 13 \times 12 \times 11}{24} = 1.001 \]
     \end{enumerate}
 
-   Hitung hasil akhir dengan prinsip inklusi-eksklusi.
+    Hitung hasil akhir dengan prinsip inklusi-eksklusi.
     \begin{align*}
         \text{Banyak cara valid} &= |S| - |A_1| - |A_2| + |A_1 \cap A_2| \\
         &= 12.650 - 4.845 - 3.876 + 1.001 \\
@@ -366,5 +362,164 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
     \end{align*}
     Jadi, terdapat \fbox{4.930 cara} berbeda membagikan 25 porsi takoyaki tersebut.
 \end{enumerate}
+
+\newpage
+\subsection*{Soal 11 [Graf -- Graf Isomorfik, Sirkuit Euler, dan Pewarnaan Graf]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Untuk menganalisis isomorfisme antara graf $G_1$ dan $G_2$, pertama-tama hitung derajat masing-masing simpul pada kedua graf. Pada graf $G_1$, simpul $\{1, 2, 3, 4, 5, 6\}$ masing-masing berderajat 4, sedangkan simpul $\{7, 8\}$ berderajat 3. Pada graf $G_2$, derajat masing-masing simpul adalah $d(A)=4, d(B)=4, d(C)=3, d(D)=4, d(E)=4, d(F)=3, d(G)=4, d(H)=4$. Kedua graf memiliki urutan derajat (\textit{degree sequence}) yang identik, yaitu $(4, 4, 4, 4, 4, 4, 3, 3)$. 
+    
+    Selanjutnya, pada $G_1$, simpul 7 terhubung ke $\{1, 3, 5\}$ dan simpul 8 terhubung ke $\{2, 4, 6\}$, sedangkan pada $G_2$, simpul $C$ terhubung ke $\{A, D, H\}$ dan simpul $F$ terhubung ke $\{B, E, G\}$. Dengan memetakan simpul berderajat 3 beserta himpunan tetangganya, diperoleh fungsi pemetaan bijektif $f: V_1 \to V_2$ sebagai berikut:
+    \begin{align*}
+        f(1) = A, \quad f(2) = B, \quad f(3) = D, \quad f(4) = E, \\
+        f(5) = H, \quad f(6) = G, \quad f(7) = C, \quad f(8) = F
+    \end{align*}
+    Karena $f$ merupakan pemetaan bijektif yang menjaga seluruh hubungan ketetanggaan antar simpul, terbukti bahwa graf $G_1$ dan $G_2$ \textbf{saling isomorfik} ($G_1 \cong G_2$).
+
+    \item Berdasarkan teorema Euler, suatu graf memiliki sirkuit Euler jika dan hanya jika graf tersebut terhubung dan setiap simpulnya berderajat genap. Pada graf $G_1$, simpul 7 dan 8 memiliki derajat 3 (ganjil) sehingga $G_1$ tidak memiliki sirkuit Euler. 
+    
+    Agar petugas patroli dapat melintasi seluruh koridor tepat satu kali dan kembali ke titik awal, seluruh simpul harus berderajat genap. Karena hanya terdapat 2 simpul berderajat ganjil, kita cukup menambahkan 1 koridor minimal yang menghubungkan simpul 7 dan simpul 8, yaitu koridor $(7, 8)$. Setelah koridor ini ditambahkan, derajat simpul 7 dan 8 bertambah menjadi 4 (genap) sehingga seluruh 8 simpul berderajat genap. Jadi, jumlah koridor minimal yang perlu ditambahkan adalah \fbox{1 koridor}.
+
+    \item Berdasarkan matriks ketetanggaan $A(G_2)$, himpunan simpul $V_2$ dapat dibagi menjadi dua himpunan independen, yaitu $V_1' = \{A, D, H, F\}$ dan $V_2' = \{B, E, G, C\}$. Tidak ada dua simpul di dalam $V_1'$ maupun di dalam $V_2'$ yang terhubung langsung oleh koridor. Hal ini menunjukkan bahwa $G_2$ merupakan \textbf{graf bipartit}. 
+    
+    Karena $G_2$ memuat setidaknya satu sisi dan bersifat bipartit, maka jumlah warna minimum yang dibutuhkan untuk mewarnai pos pada $G_2$ (bilangan kromatik) adalah $\chi(G_2) = \fbox{2}$. Skema alokasi warnanya adalah Warna 1 untuk pos $\{A, D, H, F\}$ dan Warna 2 untuk pos $\{B, E, G, C\}$.
+\end{enumerate}
+
+\newpage
+\subsection*{Soal 12 [Aljabar Boolean -- Peta Karnaugh]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Untuk fungsi $F(w,x,y,z)$, himpunan minterm adalah $m(F) = \{1, 3, 5, 9, 13\}$ dengan kondisi \textit{don't care} $d(F) = \{0, 7, 15\}$. Untuk fungsi $G(w,x,y,z) = (w' + x)(x' + y' + z)(w + y)$, nilai $G=0$ (maxterm) diperoleh ketika $(w'+x)=0 \implies wx=10$ (minterm 8, 9, 10, 11), $(x'+y'+z)=0 \implies (x,y,z)=(1,1,0)$ (minterm 6, 14), dan $(w+y)=0 \implies wy=00$ (minterm 0, 1, 4, 5). Maka maxterm $M(G) = \{0, 1, 4, 5, 6, 8, 9, 10, 11, 14\}$ sehingga minterm $m(G) = \{2, 3, 7, 12, 13, 15\}$.
+    
+    Kondisi keberhasilan total $H(w,x,y,z) = F + G$ diperoleh dengan menggabungkan minterm kedua fungsi:
+    \[ m(H) = m(F) \cup m(G) = \{1, 2, 3, 5, 7, 9, 12, 13, 15\} \]
+    Adapun kondisi \textit{don't care} sisa $d(H)$ diambil dari $d(F) = \{0, 7, 15\}$. Karena minterm 7 dan 15 sudah bernilai 1 pada $m(H)$, kondisi \textit{don't care} sisa untuk $H$ adalah $d(H) = \{0\}$.
+
+    \item Pemetaan minterm dan kondisi \textit{don't care} ke dalam peta karnaugh adalah sebagai berikut:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $wx \backslash yz$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+    \textbf{00} & $d$ & $1$ & $1$ & $1$ \\ \hline
+    \textbf{01} & $0$ & $1$ & $1$ & $0$ \\ \hline
+    \textbf{11} & $1$ & $1$ & $1$ & $0$ \\ \hline
+    \textbf{10} & $0$ & $1$ & $0$ & $0$ \\ \hline
+    \end{tabular}
+    \end{center}
+    
+    Untuk memperoleh bentuk baku SOP minimal, kita mengelompokkan entri bernilai 1 (dengan memanfaatkan $d_0 = 1$). Kuad $\{0, 1, 3, 2\}$ menghasilkan term $w'x'$. Kuad $\{1, 5, 13, 9\}$ menghasilkan term $y'z$. Kuad $\{1, 3, 5, 7\}$ menghasilkan term $w'z$. Terakhir, pasangan $\{12, 13\}$ menghasilkan term $wxy'$. Maka bentuk baku SOP minimal adalah:
+    \[ \boxed{H_{\text{SOP}}(w,x,y,z) = w'x' + y'z + w'z + wxy'} \]
+
+    Untuk memperoleh bentuk baku POS minimal, kita mengelompokkan entri bernilai 0 pada peta karnaugh yang menghasilkan bentuk berikut.
+    \[ \boxed{H_{\text{POS}}(w,x,y,z) = (w' + z)(x' + z)(w + y' + z)(w' + x + y')} \]
+
+    \item Diagram rangkaian logika sakelar otomatis kontrol larutan $H(w,x,y,z)$ dari bentuk baku SOP minimal adalah sebagai berikut:
+    
+    \begin{center}
+    \begin{tikzpicture}[circuit logic US, huge circuit symbols, x=1.5cm, y=1.1cm, >=stealth]
+        \node (w) at (0, 3.5) {$w$};
+        \node (x) at (0, 2.3) {$x$};
+        \node (y) at (0, 1.1) {$y$};
+        \node (z) at (0, -0.1) {$z$};
+
+        \node[not gate, draw, anchor=input] (notw) at (1.2, 3.5) {};
+        \node[not gate, draw, anchor=input] (notx) at (1.2, 2.3) {};
+        \node[not gate, draw, anchor=input] (noty) at (1.2, 1.1) {};
+
+        \draw (w) -- (notw.input);
+        \draw (x) -- (notx.input);
+        \draw (y) -- (noty.input);
+
+        \node[and gate, draw, inputs={nn}, anchor=east] (and1) at (4.5, 3.2) {};
+        \node[and gate, draw, inputs={nn}, anchor=east] (and2) at (4.5, 1.8) {};
+        \node[and gate, draw, inputs={nn}, anchor=east] (and3) at (4.5, 0.4) {};
+        \node[and gate, draw, inputs={nnn}, anchor=east] (and4) at (4.5, -1.0) {};
+
+        \node[above right=1pt of and1.output, font=\small] {$w'x'$};
+        \node[above right=1pt of and2.output, font=\small] {$y'z$};
+        \node[above right=1pt of and3.output, font=\small] {$w'z$};
+        \node[above right=1pt of and4.output, font=\small] {$wxy'$};
+
+        \draw (notw.output) -- ++(0.8,0) |- (and1.input 1);
+        \draw (notx.output) -- ++(0.5,0) |- (and1.input 2);
+
+        \draw (noty.output) -- ++(1.2,0) |- (and2.input 1);
+        \draw (z) -- ++(2.2,0) |- (and2.input 2);
+
+        \draw (notw.output) -- ++(0.8,0) |- (and3.input 1);
+        \draw (z) -- ++(2.2,0) |- (and3.input 2);
+
+        \draw (w) -- ++(0.3,0) |- (and4.input 1);
+        \draw (x) -- ++(0.2,0) |- (and4.input 2);
+        \draw (noty.output) -- ++(1.2,0) |- (and4.input 3);
+
+        \node[or gate, draw, inputs={nnnn}, anchor=west] (or1) at (6.5, 1.1) {};
+
+        \draw (and1.output) -- (or1.input 1);
+        \draw (and2.output) -- (or1.input 2);
+        \draw (and3.output) -- (or1.input 3);
+        \draw (and4.output) -- (or1.input 4);
+
+        \draw (or1.output) -- ++(1,0) node[right, font=\bfseries] {$H(w,x,y,z)$};
+    \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+
+\subsection*{Soal 13 [Fungsi -- Fungsi Injektif]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Untuk membuktikan secara ketat bahwa fungsi $f$ bersifat injektif, ambil sebarang $y_1, y_2 \in \mathbb{Z}$ sedemikian sehingga $f(y_1) = f(y_2)$. Substitusikan $y = y_1$ dan $x = 0$ ke dalam persamaan fungsi $f(x + f(y)) = f(x + y) + 2y$ sehingga diperoleh $f(f(y_1)) = f(y_1) + 2y_1$. Dengan cara yang sama, substitusikan $y = y_2$ dan $x = 0$ untuk memperoleh $f(f(y_2)) = f(y_2) + 2y_2$. 
+    
+    Karena diketahui $f(y_1) = f(y_2)$, maka nilainya juga sama
+    \[ f(f(y_1)) = f(f(y_2)) \]
+    Akibatnya, kita mendapatkan kesamaan $f(y_1) + 2y_1 = f(y_2) + 2y_2$. Dengan mengurangkan $f(y_1) = f(y_2)$ dari kedua ruas, diperoleh $2y_1 = 2y_2 \implies y_1 = y_2$. Sesuai definisi fungsi injektif, terbukti bahwa \textbf{fungsi $f$ bersifat injektif}.
+
+    \item Untuk menentukan seluruh rumus fungsi $f$, pertama-tama substitusikan $y = 0$ ke persamaan asli $f(x + f(y)) = f(x + y) + 2y$ untuk memperoleh $f(x + f(0)) = f(x)$. Berdasarkan sifat injektif yang telah dibuktikan pada bagian (a), hubungan $f(x + f(0)) = f(x)$ implikasinya adalah $x + f(0) = x \implies f(0) = 0$. 
+    
+    Selanjutnya, dari hubungan $f(f(y)) = f(y) + 2y$, kita uji pemetaan linier $f(x) = cx$. Substitusi $f(x) = cx$ memberikan $c(cx) = cx + 2x \implies c^2 x = (c + 2)x$. Karena persamaan ini harus berlaku untuk setiap $x \in \mathbb{Z}$, kita dapatkan persamaan kuadrat $c^2 - c - 2 = 0 \implies (c - 2)(c + 1) = 0$ sehingga $c = 2$ atau $c = -1$. Kedua fungsi ini memenuhi seluruh persamaan asal. Jadi, seluruh rumus fungsi $f: \mathbb{Z} \to \mathbb{Z}$ yang memenuhi adalah \fbox{$f(x) = 2x$} dan \fbox{$f(x) = -x$}.
+\end{enumerate}
+
+\newpage
+\subsection*{Soal 14 [Teori Bilangan -- Algoritma RSA]}
+\textbf{Solusi:}
+
+Diberikan modulus publik $n = 143$, eksponen $e_1 = 7, e_2 = 11$, serta ciphertext $C_1 = 47, C_2 = 60$. Untuk memulihkan pesan asli $M$ tanpa memfaktorkan $n$, kita lakukan beberapa langkah. Pertama, cari pasangan bilangan bulat $r$ dan $s$ sedemikian rupa sehingga $r \cdot e_1 + s \cdot e_2 = \gcd(e_1, e_2) = 1$ menggunakan algoritma Euclid. Proses pembagian menghasilkan
+\begin{align*}
+    11 &= 1 \cdot 7 + 4 \\
+    7 &= 1 \cdot 4 + 3 \\
+    4 &= 1 \cdot 3 + 1
+\end{align*}
+Dengan melakukan substitusi balik, diperoleh
+\begin{align*}
+    1 &= 4 - 1 \cdot 3 \\
+      &= 4 - (7 - 4) = 2 \cdot 4 - 7 \\
+      &= 2(11 - 7) - 7 \\
+      &= 2 \cdot 11 - 3 \cdot 7
+\end{align*}
+sehingga diperoleh $r = -3$ dan $s = 2$.
+
+Selanjutnya, hubungkan ciphertext dengan pesan asli $M$ melalui persamaan $C_1^r \cdot C_2^s \equiv (M^{e_1})^{-3} \cdot (M^{e_2})^2 \equiv M^{-21 + 22} \equiv M \pmod{143}$. Pesan asli $M$ dapat dihitung dengan rumus $M \equiv C_1^{-3} \cdot C_2^2 \pmod{143} \equiv (C_1^{-1})^3 \cdot C_2^2 \pmod{143}$. Hitung invers modular $C_1^{-1} \pmod{143} \implies 47^{-1} \pmod{143}$ menggunakan algoritma Euclid.
+\begin{align*}
+    143 &= 3 \cdot 47 + 2 \\
+    47 &= 23 \cdot 2 + 1
+\end{align*}
+Dengan melakukan substitusi balik, diperoleh
+\begin{align*}
+    1 &= 47 - 23 \cdot 2 \\
+      &= 47 - 23 \cdot (143 - 3 \cdot 47) \\
+      &= 70 \cdot 47 - 23 \cdot 143
+\end{align*}
+sehingga $C_1^{-1} \equiv 70 \pmod{143}$.
+
+Terakhir, lakukan perpangkatan dan perkalian modular secara bertahap.
+\begin{align*}
+    (C_1^{-1})^3 &\equiv 70^3 \equiv 38 \cdot 70 = 2660 \equiv 86 \pmod{143} \\
+    C_2^2 &\equiv 60^2 = 3600 \equiv 25 \pmod{143} \\
+    M &\equiv 86 \cdot 25 = 2150 \equiv 5 \pmod{143}
+\end{align*}
+Jadi, nilai asli pesan $M$ yang berhasil dipulihkan secara eksplisit adalah \fbox{5}.
 
 \end{document}

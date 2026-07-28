@@ -130,8 +130,6 @@ Itona sedang merancang sistem enkripsi transmisi data bertingkat untuk mengamank
     \item Tentukan solusi bilangan bulat positif terkecil $x$ yang memenuhi sistem kongruensi tersebut dengan menggunakan Chinese Remainder Theorem.
     \item Tentukan seluruh nilai $x$ yang memenuhi sistem kongruensi tersebut dalam rentang $1000 \leq x \leq 3000$.
 \end{enumerate}
-\vspace{0.3cm}
-
 
 \subsection*{Soal 10 [Kombinatorika -- Kombinasi dan Inklusi-Eksklusi]}
 Setelah mendapatkan bonus dari Karasuma-sensei, Koro-sensei membeli 25 porsi takoyaki dari Osaka untuk dibagikan kepada 5 muridnya, yaitu Nagisa, Karma, Kayano, Sugino, dan Okuda. Pembagian takoyaki tersebut harus memenuhi syarat-syarat berikut.
@@ -147,6 +145,62 @@ Setelah mendapatkan bonus dari Karasuma-sensei, Koro-sensei membeli 25 porsi tak
     \item Formulasikan permasalahan pembagian takoyaki di atas ke dalam bentuk persamaan linear dengan syarat batas untuk masing-masing variabel.
     \item Hitunglah banyak cara berbeda membagikan 25 porsi takoyaki tersebut yang memenuhi seluruh syarat di atas.
 \end{enumerate}
-\vspace{0.3cm}
 
+\newpage
+\section*{Bagian III: Hard \& Bonus Anti-LLM}
+
+\subsection*{Soal 11 [Graf -- Graf Isomorfik, Sirkuit Euler, dan Pewarnaan Graf]}
+Yuzuki sedang menganalisis denah koridor di gedung sekolah tua di dekat SMP Kunugigaoka, yang dimodelkan sebagai graf $G_1 = (V_1, E_1)$ dengan 8 pos $V_1 = \{1, 2, 3, 4, 5, 6, 7, 8\}$ dan himpunan koridor
+\[ E_1 = \{(1,2), (2,3), (3,4), (4,5), (5,6), (6,1), (1,4), (2,5), (3,6), (7,1), (7,3), (7,5), (8,2), (8,4), (8,6)\} \]
+
+Di sisi lain, Karma menemukan cetak biru denah koridor di gedung utama SMP Kunugigaoka, yang dimodelkan sebagai graf $G_2 = (V_2, E_2)$ dengan pos $V_2 = \{A, B, C, D, E, F, G, H\}$ dan matriks ketetanggaan (\textit{adjacency matrix}) berikut:
+\[
+A(G_2) = \begin{bmatrix}
+0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 1 & 0 & 1 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+Analisis kedua denah koridor tersebut untuk menjawab pertanyaan-pertanyaan berikut:
+\begin{enumerate}[label=(\alph*)]
+    \item Tentukan apakah graf $G_1$ dan $G_2$ saling isomorfik. Jika ya, tentukan fungsi pemetaan bijektif $f: V_1 \to V_2$ yang menjaga ketetanggaan pos. Jika tidak, tunjukkan invariansi graf yang melanggar.
+    \item Apakah petugas patroli dapat melintasi seluruh koridor tepat satu kali dan kembali ke pos awal pada graf $G_1$? Jika tidak, tentukan jumlah koridor minimal yang harus ditambahkan pada $G_1$ agar petugas dapat melakukan patroli keliling gedung tanpa mengulang koridor yang telah dilewati.
+    \item Tentukan jumlah warna minimum untuk mewarnai pos $G_2$ sedemikian rupa sehingga tidak ada dua pos yang terhubung langsung oleh koridor memiliki warna yang sama. Berikan skema alokasi warnanya!
+\end{enumerate}
+
+\subsection*{Soal 12 [Aljabar Boolean -- Peta Karnaugh]}
+Manami sedang merekayasa reaksi kimia dua tahap untuk membuat larutan khusus bagi Koro-sensei. Keberhasilan reaksi ditentukan oleh 4 peubah kondisi biner: $w$ (katalis suhu tinggi), $x$ (pelarut basa), $y$ (kadar asam tinggi), dan $z$ (pengocokan konstan). Manami mencatat dua syarat reaksi terpisah:
+
+\begin{itemize}
+    \item \textbf{Tahap I} $F(w,x,y,z)$: Dinyatakan dalam bentuk minterm
+    \[ F(w,x,y,z) = \sum m(1, 3, 5, 9, 13) \]
+    dengan kondisi don't care $d(w,x,y,z) = \sum d(0, 7, 15)$.
+    \item \textbf{Tahap II} $G(w,x,y,z)$: Dinyatakan dalam bentuk POS
+    \[ G(w,x,y,z) = (w' + x)(x' + y' + z)(w + y) \]
+\end{itemize}
+
+Agar larutan akhir bereaksi secara sempurna, kondisi keberhasilan total dinyatakan sebagai fungsi $H(w,x,y,z) = F(w,x,y,z) + G(w,x,y,z)$. Selesaikan analisis eksperimen berikut:
+
+\begin{enumerate}[label=(\alph*)]
+    \item Petakan kedua fungsi $F(w,x,y,z)$ dan $G(w,x,y,z)$ ke dalam peta karnaugh yang sama, lalu tentukan himpunan minterm gabungan dan kondisi don't care untuk larutan akhir $H(w,x,y,z)$.
+    \item Sederhanakan fungsi $H(w,x,y,z)$ menggunakan peta karnaugh ke dalam bentuk baku SOP dan POS.
+    \item Gambarkan rangkaian logika sakelar otomatis kontrol larutan $H(w,x,y,z)$ hasil penyederhanaan bentuk baku SOP di atas dengan menggunakan gerbang-gerbang logika standar (AND, OR, NOT).
+\end{enumerate}
+
+\subsection*{Soal 13 [Fungsi -- Fungsi Injektif]}
+Karma dan Nagisa menemukan sebuah fungsi sandi rahasia $f: \mathbb{Z} \to \mathbb{Z}$ yang memenuhi persamaan fungsi berikut untuk setiap bilangan bulat $x, y \in \mathbb{Z}$:
+\[ f(x + f(y)) = f(x + y) + 2y \]
+Analisislah sifat-sifat matematis dari fungsi $f$ tersebut dengan menyelesaikan pertanyaan-pertanyaan berikut.
+\begin{enumerate}[label=(\alph*)]
+    \item Berdasarkan definisi, buktikan bahwa fungsi $f$ bersifat injektif.
+    \item Tentukan seluruh rumus fungsi $f: \mathbb{Z} \to \mathbb{Z}$ yang memenuhi persamaan fungsi di atas.
+\end{enumerate}
+\subsection*{Soal 14 [Teori Bilangan -- Algoritma RSA]}
+Ikeda mendeteksi kelemahan protokol enkripsi RSA yang digunakan oleh sistem transmisi Shiro. Shiro menggunakan modulus publik $n = 143$ yang sama untuk dua stasiun penerima, namun menggunakan dua kunci publik eksponen yang berbeda, yaitu $e_1 = 7$ dan $e_2 = 11$. Sebuah pesan rahasia $M$ yang sama dikirimkan ke kedua stasiun penerima tersebut dan menghasilkan dua ciphertext, yaitu $C_1 = 47$ dan $C_2 = 60$. Tanpa melakukan faktorisasi terhadap $n$ dan tanpa mencari kunci privat $d_1$ maupun $d_2$, buktikan bagaimana pesan asli $M$ dapat dipulihkan hanya dengan memanfaatkan kombinasi linier eksponen $r \cdot e_1 + s \cdot e_2 = \gcd(e_1, e_2)$. Hitunglah nilai asli pesan $M$ tersebut secara eksplisit!
 \end{document}
