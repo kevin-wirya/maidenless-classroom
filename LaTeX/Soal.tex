@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{preamble}
+
+\title{\textbf{Ujian Akhir Semester Matematika Diskrit}}
+\author{Kevin Wirya Valerian - 13524019}
+\date{}
+
+\SetWatermarkText{}
+\SetWatermarkScale{3}
+
+\begin{document}
+
+\maketitle
+
+\section*{Bagian I: Easy}
+
+\subsection*{Soal 1 [Logika Penalaran -- Inferensi]}
+Koro-sensei memberikan tiga pernyataan berikut mengenai rencananya setelah mengajar di Kelas 3E.
+\begin{enumerate}[label=(\roman*)]
+    \item Jika Koro-sensei pergi ke bulan, ia akan membawa oleh-oleh batu bulan.
+    \item Koro-sensei tidak membawa oleh-oleh batu bulan atau ia akan menonton Netflix di rumah.
+    \item Koro-sensei pergi ke bulan dan ia tidak menonton Netflix di rumah.
+\end{enumerate}
+Apakah rencana Koro-sensei konsisten? Gunakan aturan inferensi logika untuk menunjukkan hal tersebut.
+
+\subsection*{Soal 2 [Himpunan -- Prinsip Inklusi dan Eksklusi]}
+Dari 100 siswa di Kelas 3E, diketahui bahwa 35 siswa senang bermain sepak bola, 50 siswa senang bermain bulu tangkis, dan 40 siswa senang bermain basket. Diketahui juga bahwa 21 siswa suka bermain sepak bola dan bulu tangkis dan 17 siswa senang bermain bulu tangkis dan basket. Jika diketahui bahwa 9 siswa suka ketiga olahraga tersebut dan terdapat 8 siswa yang tidak suka ketiganya. 
+\begin{enumerate}[label=(\alph*)]
+    \item Nyatakanlah banyak siswa yang senang bermain sepak bola dan basket dalam notasi himpunan.
+    \item Tentukan berapa banyak siswa yang senang bermain sepak bola dan basket.
+\end{enumerate}
+
+\subsection*{Soal 3 [Relasi dan Fungsi -- Sifat Relasi]}
+Pengelola kantin SMP Kunugigaoka mencatat preferensi siswa terhadap empat menu favorit, yaitu nasi goreng ($N$), mie ayam ($M$), cimol ($C$), dan bakso ($B$). Didefinisikan relasi $R$ pada himpunan $A = \{N, M, C, B\}$, di mana $(x, y) \in R$ berarti siswa lebih menyukai menu $x$ daripada menu $y$. Berdasarkan hasil survei, diperoleh data preferensi sebagai berikut.
+\begin{itemize}
+    \item nasi goreng ($N$) lebih disukai daripada cimol ($C$) dan bakso ($B$).
+    \item bakso ($B$) lebih disukai daripada mie ayam ($M$) dan cimol ($C$).
+    \item mie ayam ($M$) lebih disukai daripada nasi goreng ($N$).
+\end{itemize}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Tuliskan relasi $R$ dalam bentuk himpunan pasangan terurut.
+    \item Selidiki apakah relasi $R$ tersebut bersifat refleksif, setangkup, atau menghantar! Berikan alasan singkat untuk masing-masing sifat.
+\end{enumerate}
+\vspace{0.5cm}
+
+\subsection*{Soal 4 [Aljabar Boolean -- Bentuk Kanonik SOP dan POS]}
+Nagisa sedang menganalisis sistem sinyal kontrol keamanan laboratorium. Sistem tersebut memproses tiga masukan sinyal biner $x$, $y$, dan $z$, dengan keluaran logika yang direpresentasikan oleh fungsi Boolean $f(x, y, z)$ seperti pada tabel kebenaran berikut:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & $y$ & $z$ & $f(x, y, z)$ \\ \hline
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 0 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 0 \\ \hline
+\end{tabular}
+\end{center}
+
+Nyatakan fungsi Boolean $f(x, y, z)$ tersebut dalam:
+\begin{enumerate}[label=(\alph*)]
+    \item Bentuk kanonik \textit{Sum-of-Products} (SOP).
+    \item Bentuk kanonik \textit{Product-of-Sums} (POS).
+\end{enumerate}
+\vspace{0.3cm}
+
+\subsection*{Soal 5 [Kompleksitas Algoritma -- Notasi Big-O]}
+Karma sedang menguji lima algoritma pemecahan sandi ($A, B, C, D,$ dan $E$) untuk menentukan rute evakuasi tercepat. Jumlah operasi dasar $T(n)$ untuk masing-masing algoritma sebagai fungsi dari ukuran masukan $n$ dirumuskan sebagai berikut:
+\begin{align*}
+    A: T_A(n) &= (n + 4)^2 - 8n \\
+    B: T_B(n) &= n \log_2(n^5) + n^{1.5} \\
+    C: T_C(n) &= 4(\log_2 n)^3 + 3n \\
+    D: T_D(n) &= 2^{\log_2(n \log_2 n)} + \log_2 n \\
+    E: T_E(n) &= 10(\log_2 n)^2 + 50
+\end{align*}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Nyatakan kompleksitas waktu dalam notasi Big-$O$ untuk masing-masing algoritma.
+    \item Urutkan kelima algoritma tersebut dari yang paling efisien hingga yang paling tidak efisien!
+\end{enumerate}
+\vspace{0.3cm}
+
+\end{document}

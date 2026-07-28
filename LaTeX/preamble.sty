@@ -1,0 +1,94 @@
+\ProvidesPackage{preamble}
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{draftwatermark}
+\usepackage{wasysym}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable,theorems}
+\usepackage{changepage}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\usepackage{cancel}
+\usepackage{gensymb}
+\usetikzlibrary{patterns}
+\usepackage{adjustbox}
+
+%make comment
+\newtcolorbox{com}{breakable, enhanced,
+		colframe=white!10!teal, coltitle=white!90!teal, colback=white!85!teal, coltext=black, colbacktitle=white!10!teal, fonttitle=\bfseries,fontupper=\normalsize, before skip=8pt, after skip=8pt,
+		title=Definisi}
+  
+%make formula box
+\newtcolorbox{for}{breakable, enhanced,
+		colframe=white!10!red, coltitle=white!90!red, coltext=black, colback=white, colbacktitle=white!10!red, fonttitle=\bfseries,fontupper=\normalsize, before skip=8pt, after skip=8pt,
+		title=Formula}
+%make exercise box
+\newtcolorbox{xrc}{breakable, enhanced,
+		colframe=white!10!blue, coltitle=white!90!blue, colbacktitle=white!10!blue, colback=white, coltext=black, fonttitle=\bfseries,fontupper=\normalsize, before skip=8pt, after skip=8pt,
+		title=Contoh Soal}
+
+%cirle-ing numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%link color setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=blue,
+}
+
+%flowchart design
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1cm,
+text centered, 
+draw=black, 
+fill=red!30]
+
+\tikzstyle{io} = [trapezium, 
+trapezium stretches=true, % A later addition
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1cm, text centered, 
+draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+text width=3cm, 
+draw=black, 
+fill=orange!30]
+
+\tikzstyle{decision} = [diamond, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+draw=black, 
+fill=green!30]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+% Define a new column type for fixed width
+\newcolumntype{X}{>{\centering\arraybackslash}p{7cm}} % Fixed-width column
+\newcolumntype{Y}{>{\centering\arraybackslash}p{3cm}}
