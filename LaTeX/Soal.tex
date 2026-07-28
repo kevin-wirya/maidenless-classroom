@@ -42,7 +42,6 @@ Pengelola kantin SMP Kunugigaoka mencatat preferensi siswa terhadap empat menu f
     \item Tuliskan relasi $R$ dalam bentuk himpunan pasangan terurut.
     \item Selidiki apakah relasi $R$ tersebut bersifat refleksif, setangkup, atau menghantar! Berikan alasan singkat untuk masing-masing sifat.
 \end{enumerate}
-\vspace{0.5cm}
 
 \subsection*{Soal 4 [Aljabar Boolean -- Bentuk Kanonik SOP dan POS]}
 Nagisa sedang menganalisis sistem sinyal kontrol keamanan laboratorium. Sistem tersebut memproses tiga masukan sinyal biner $x$, $y$, dan $z$, dengan keluaran logika yang direpresentasikan oleh fungsi Boolean $f(x, y, z)$ seperti pada tabel kebenaran berikut:
@@ -67,7 +66,6 @@ Nyatakan fungsi Boolean $f(x, y, z)$ tersebut dalam:
     \item Bentuk kanonik \textit{Sum-of-Products} (SOP).
     \item Bentuk kanonik \textit{Product-of-Sums} (POS).
 \end{enumerate}
-\vspace{0.3cm}
 
 \subsection*{Soal 5 [Kompleksitas Algoritma -- Notasi Big-O]}
 Karma sedang menguji lima algoritma pemecahan sandi ($A, B, C, D,$ dan $E$) untuk menentukan rute evakuasi tercepat. Jumlah operasi dasar $T(n)$ untuk masing-masing algoritma sebagai fungsi dari ukuran masukan $n$ dirumuskan sebagai berikut:
@@ -82,6 +80,72 @@ Karma sedang menguji lima algoritma pemecahan sandi ($A, B, C, D,$ dan $E$) untu
 \begin{enumerate}[label=(\alph*)]
     \item Nyatakan kompleksitas waktu dalam notasi Big-$O$ untuk masing-masing algoritma.
     \item Urutkan kelima algoritma tersebut dari yang paling efisien hingga yang paling tidak efisien!
+\end{enumerate}
+
+\newpage
+\section*{Bagian II: Medium}
+
+\subsection*{Soal 6 [Induksi Matematika -- Pembuktian Formula]}
+Dalam sebuah analisis transmisi sinyal data, Karma menemukan bahwa tingkat efisiensi sinyal untuk $n$ saluran komunikasi dapat dinyatakan sebagai jumlah deret berikut.
+\[ S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \frac{1}{7 \cdot 10} + \dots + \frac{1}{(3n-2)(3n+1)} \]
+
+Karma menduga bahwa nilai total efisiensi sinyal $S_n$ dapat dihitung secara instan menggunakan rumus
+\[ S_n = \frac{n}{3n+1} \]
+
+Buktikan kebenaran rumus tersebut untuk setiap bilangan bulat $n \geq 1$ dengan menggunakan prinsip induksi matematika.
+
+\subsection*{Soal 7 [Pohon -- Penelusuran Traversal]}
+Ritsu menyimpan direktori data modul serangan dalam bentuk pohon biner yang terdiri dari 12 simpul ($A, B, C, D, E, F, G, H, I, J, K, L$). Hasil penelusuran traversal pada pohon biner tersebut menghasilkan urutan \textit{preorder}
+\begin{itemize}
+    \item Preorder: A, B, D, E, H, I, L, C, F, J, G, K
+    \item Inorder: D, B, H, E, I, L, A, J, F, C, G, K
+\end{itemize}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Gambarkan struktur pohon biner berdasarkan hasil penelusuran di atas.
+    \item Tentukan urutan simpul-simpulnya jika pohon tersebut ditelusuri secara postorder.
+\end{enumerate}
+
+\subsection*{Soal 8 [Relasi Rekurens -- Penyelesaian Relasi Rekurens]}
+Hinano sedang melakukan pemodelan matematika untuk mengamati pertumbuhan populasi kultur bakteri dalam eksperimen laboratorium. Jumlah populasi bakteri pada jam ke-$n$ dinyatakan sebagai $a_n$, yang memenuhi persamaan relasi rekurens linier homogen berikut:
+\[ a_n = 5a_{n-1} - 6a_{n-2} \quad \text{untuk } n \geq 2 \]
+
+Jika pada awal pengamatan dicatat jumlah populasi awal $a_0 = 1$ dan $a_1 = 4$:
+\begin{enumerate}[label=(\alph*)]
+    \item Tentukan persamaan karakteristik dan akar-akar karakteristik dari relasi rekurens tersebut.
+    \item Tentukan rumus eksplisit $a_n$ sebagai fungsi dari $n$.
+    \item Tentukan jumlah populasi bakteri pada jam ke-8.
+\end{enumerate}
+
+\subsection*{Soal 9 [Teori Bilangan -- Chinese Remainder Theorem]}
+Itona sedang merancang sistem enkripsi transmisi data bertingkat untuk mengamankan komunikasi Kelas 3E. Kunci rahasia $x$ memenuhi tiga sistem kongruensi linear berikut:
+\begin{align*}
+    3x &\equiv 5 \pmod 8 \\
+    4x &\equiv 2 \pmod 9 \\
+    5x &\equiv 3 \pmod{13}
+\end{align*}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Ubah ketiga persamaan kongruensi linear di atas ke dalam bentuk $x \equiv a_i \pmod{m_i}$ dengan menentukan invers modulo dari masing-masing koefisien.
+    \item Tentukan solusi bilangan bulat positif terkecil $x$ yang memenuhi sistem kongruensi tersebut dengan menggunakan Chinese Remainder Theorem.
+    \item Tentukan seluruh nilai $x$ yang memenuhi sistem kongruensi tersebut dalam rentang $1000 \leq x \leq 3000$.
+\end{enumerate}
+\vspace{0.3cm}
+
+
+\subsection*{Soal 10 [Kombinatorika -- Kombinasi dan Inklusi-Eksklusi]}
+Setelah mendapatkan bonus dari Karasuma-sensei, Koro-sensei membeli 25 porsi takoyaki dari Osaka untuk dibagikan kepada 5 muridnya, yaitu Nagisa, Karma, Kayano, Sugino, dan Okuda. Pembagian takoyaki tersebut harus memenuhi syarat-syarat berikut.
+\begin{itemize}
+    \item Nagisa harus mendapat setidaknya 3 porsi.
+    \item Karma tidak boleh mendapat lebih dari 4 porsi.
+    \item Kayano tidak boleh mendapat lebih dari 5 porsi.
+    \item Sugino harus mendapat setidaknya 1 porsi.
+    \item Okuda boleh mendapat berapa saja.
+\end{itemize}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Formulasikan permasalahan pembagian takoyaki di atas ke dalam bentuk persamaan linear dengan syarat batas untuk masing-masing variabel.
+    \item Hitunglah banyak cara berbeda membagikan 25 porsi takoyaki tersebut yang memenuhi seluruh syarat di atas.
 \end{enumerate}
 \vspace{0.3cm}
 

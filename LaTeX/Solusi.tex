@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{preamble}
 
-\title{\textbf{Solusi dan Kunci Jawaban Ujian Akhir Semester Matematika Diskrit}}
+\title{\textbf{Solusi Ujian Akhir Semester\\Matematika Diskrit}}
 \author{Kevin Wirya Valerian - 13524019}
 \date{}
 
@@ -54,7 +54,7 @@ Total siswa $= 100$, dan siswa yang tidak menyukai ketiganya $= 8$. Maka, banyak
 
 \begin{enumerate}[label=(\alph*)]
     \item Banyak siswa yang senang bermain sepak bola dan basket dinyatakan dalam notasi himpunan sebagai
-    \[ |S \cap B| \]
+    \[ \boxed{|S \cap B|} \]
     
     \item Berdasarkan prinsip inklusi-eksklusi untuk 3 himpunan,
     \[ |S \cup T \cup B| = |S| + |T| + |B| - |S \cap T| - |T \cap B| - |S \cap B| + |S \cap T \cap B| \]
@@ -79,7 +79,7 @@ Himpunan menu makanan $A = \{N, M, C, B\}$. Relasi $R$ didefinisikan dengan $(x,
         \item $M$ lebih disukai daripada $N \implies (M, N) \in R$
     \end{itemize}
     Maka relasi $R$ dalam bentuk himpunan pasangan terurut adalah
-    \[ R = \{(N, C), (N, B), (B, M), (B, C), (M, N)\} \]
+    \[ \boxed{R = \{(N, C), (N, B), (B, M), (B, C), (M, N)\}} \]
 
     \item Analisis sifat relasi $R$
     \begin{itemize}
@@ -88,8 +88,6 @@ Himpunan menu makanan $A = \{N, M, C, B\}$. Relasi $R$ didefinisikan dengan $(x,
         \item Menghantar: \textbf{Tidak}. Karena terdapat $(N, B) \in R$ dan $(B, M) \in R$, tetapi $(N, M) \notin R$.
     \end{itemize}
 \end{enumerate}
-
-\vspace{0.5cm}
 
 \subsection*{Soal 4 [Aljabar Boolean -- Bentuk Kanonik SOP dan POS]}
 \textbf{Solusi:} \\
@@ -116,8 +114,6 @@ Berdasarkan tabel kebenaran fungsi Boolean $f(x, y, z)$:
     Maka bentuk kanonik POS adalah
     \[ f(x, y, z) = \prod(1, 3, 4, 7) = (x + y + z')(x + y' + z')(x' + y + z)(x' + y' + z') \]
 \end{enumerate}
-
-\vspace{0.5cm}
 
 \subsection*{Soal 5 [Kompleksitas Algoritma -- Notasi Big-O]}
 \textbf{Solusi:}
@@ -147,6 +143,228 @@ Berdasarkan tabel kebenaran fungsi Boolean $f(x, y, z)$:
     \item Urutan laju pertumbuhan fungsi dari yang paling efisien hingga paling tidak efisien adalah
     \[ O((\log n)^2) < O(n) < O(n \log n) < O(n^{1.5}) < O(n^2) \]
     Sehingga urutan algoritmanya adalah \fbox{$E<C<D<B<A$}
+\end{enumerate}
+
+\newpage
+\section*{Bagian II: Medium}
+
+\subsection*{Soal 6 [Induksi Matematika -- Pembuktian Formula]}
+\textbf{Solusi:} \\
+Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots + \frac{1}{(3n-2)(3n+1)} = \frac{n}{3n+1}$ berlaku untuk setiap bilangan bulat $n \geq 1$.
+
+\begin{enumerate}
+    \item \textbf{Basis Induksi ($n = 1$):}
+    \[ S_1 = \frac{1}{(3(1)-2)(3(1)+1)} = \frac{1}{1 \cdot 4} = \frac{1}{4} \]
+    Hal ini sesuai dengan $\frac{1}{3(1)+1} = \frac{1}{4}$, maka basis induksi terbukti benar.
+
+    \item \textbf{Langkah Induksi:}
+    Diasumsikan benar untuk $n = k$, yaitu:
+    \[ S_k = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots + \frac{1}{(3k-2)(3k+1)} = \frac{k}{3k+1} \]
+    Akan dibuktikan benar untuk $n = k + 1$, yaitu:
+    \[ S_{k+1} = \frac{k+1}{3(k+1)+1} = \frac{k+1}{3k+4} \]
+
+    \textbf{Bukti:}
+    \begin{align*}
+        S_{k+1} &= S_k + \frac{1}{(3(k+1)-2)(3(k+1)+1)} \\
+        &= \frac{k}{3k+1} + \frac{1}{(3k+1)(3k+4)} \\
+        &= \frac{k(3k+4) + 1}{(3k+1)(3k+4)} \\
+        &= \frac{3k^2 + 4k + 1}{(3k+1)(3k+4)} \\
+        &= \frac{(3k+1)(k+1)}{(3k+1)(3k+4)} \\
+        &= \frac{k+1}{3k+4}
+    \end{align*}
+    Karena langkah induksi terbukti benar, maka rumus $S_n$ terbukti benar untuk setiap $n \geq 1$.
+\end{enumerate}
+
+\newpage
+\subsection*{Soal 7 [Pohon -- Traversal Pohon Biner]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Berikut adalah struktur pohon biner yang diperoleh dari traversal preorder.
+    \begin{center}
+    \begin{tikzpicture}[
+      every node/.style={circle, draw, minimum size=0.65cm, inner sep=0pt},
+      level distance=1.2cm,
+      level 1/.style={sibling distance=5.5cm},
+      level 2/.style={sibling distance=2.6cm},
+      level 3/.style={sibling distance=1.4cm},
+      level 4/.style={sibling distance=1.2cm}
+    ]
+      \node {A}
+        child {node {B}
+          child {node {D}}
+          child {node {E}
+            child {node {H}}
+            child {node {I}
+              child[missing]
+              child {node {L}}
+            }
+          }
+        }
+        child {node {C}
+          child {node {F}
+            child {node {J}}
+            child[missing]
+          }
+          child {node {G}
+            child[missing]
+            child {node {K}}
+          }
+        };
+    \end{tikzpicture}
+    \end{center}
+
+    \item Urutan penelusuran postorder dari pohon biner tersebut adalah 
+    \[ \boxed{D, H, L, I, E, B, J, F, K, G, C, A} \]
+\end{enumerate}
+
+\subsection*{Soal 8 [Relasi Rekurens -- Penyelesaian Relasi Rekurens]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Berikut adalah persamaan dan akar karakteristik dari relasi rekurens linier homogen pada soal.\\
+    Relasi rekurens linier homogennya adalah
+    \[ a_n - 5a_{n-1} + 6a_{n-2} = 0 \]
+    Bentuk persamaan karakteristiknya menjadi
+    \[ r^2 - 5r + 6 = 0 \]
+    Faktorkan persamaan kuadrat tersebut
+    \[ (r - 2)(r - 3) = 0 \]
+    sehingga diperoleh akar-akar karakteristik
+    \[ \boxed{r_1 = 2} \quad \text{dan} \quad \boxed{r_2 = 3} \]
+
+    \item Untuk menentukan rumus eksplisit $a_n$ dari relasi rekurens pada soal diperlukan informasi soal bentuk solusi umum dari relasi rekurens, yaitu
+    \[ a_n = c_1 \cdot 2^n + c_2 \cdot 3^n \]
+    Gunakan kondisi awal $a_0 = 1$ dan $a_1 = 4$:
+    \begin{align*}
+        n = 0 \implies c_1 \cdot 2^0 + c_2 \cdot 3^0 &= 1 \implies c_1 + c_2 = 1 \quad \text{--- (1)} \\
+        n = 1 \implies c_1 \cdot 2^1 + c_2 \cdot 3^1 &= 4 \implies 2c_1 + 3c_2 = 4 \quad \text{--- (2)}
+    \end{align*}
+    Dari persamaan (1), diperoleh $c_1 = 1 - c_2$. Substitusikan ke persamaan (2).
+    \begin{align*}
+        2(1 - c_2) + 3c_2 &= 4 \\
+        2 - 2c_2 + 3c_2 &= 4 \\
+        c_2 &= 2
+    \end{align*}
+    Substitusikan $c_2 = 2$ ke $c_1 = 1 - c_2$:
+    \[ c_1 = 1 - 2 = -1 \]
+    
+    Sehingga rumus eksplisit $a_n$ adalah
+    \[ \boxed{a_n = 2 \cdot 3^n - 2^n} \]
+
+    \item Substitusikan $n = 8$ ke dalam rumus eksplisit
+    \[ a_8 = 2 \cdot 3^8 - 2^8 = 2 \cdot 6561 - 256 = 13122 - 256 = 12866 \]
+    Jadi, populasi bakteri pada jam ke-8 adalah \fbox{12.866 bakteri}.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsection*{Soal 9 [Teori Bilangan -- Chinese Remainder Theorem]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Berikut adalah perubahan sistem kongruensi ke bentuk kanonik $x \equiv a_i \pmod{m_i}$.
+    \begin{itemize}
+        \item Persamaan 1 ($3x \equiv 5 \pmod 8$): \\
+        Invers $3^{-1} \pmod 8$ adalah $3$ (karena $3 \cdot 3 = 9 \equiv 1 \pmod 8$).
+        \[ x \equiv 5 \cdot 3 = 15 \equiv 7 \pmod 8 \]
+        
+        \item Persamaan 2 ($4x \equiv 2 \pmod 9$): \\
+        Invers $4^{-1} \pmod 9$ adalah $7$ (karena $4 \cdot 7 = 28 \equiv 1 \pmod 9$).
+        \[ x \equiv 2 \cdot 7 = 14 \equiv 5 \pmod 9 \]
+        
+        \item Persamaan 3 ($5x \equiv 3 \pmod{13}$): \\
+        Invers $5^{-1} \pmod{13}$ adalah $8$ (karena $5 \cdot 8 = 40 \equiv 1 \pmod{13}$).
+        \[ x \equiv 3 \cdot 8 = 24 \equiv 11 \pmod{13} \]
+    \end{itemize}
+    Sistem kongruensi tersederhanakan menjadi
+    \begin{align*}
+        x &\equiv 7 \pmod 8 \\
+        x &\equiv 5 \pmod 9 \\
+        x &\equiv 11 \pmod{13}
+    \end{align*}
+
+    \item Dengan informasi bahwa $m_1 = 8, m_2 = 9, m_3 = 13$ saling prima, maka dapat digunakan CRT untuk menentukan nilai $x$
+    \begin{itemize}
+        \item Nilai $M = 8 \times 9 \times 13 = 936$.
+        \item Nilai $M_i = M / m_i$
+        \[ M_1 = \frac{936}{8} = 117, \quad M_2 = \frac{936}{9} = 104, \quad M_3 = \frac{936}{13} = 72 \]
+        
+        \item Invers $y_i$ sedemikian sehingga $M_i y_i \equiv 1 \pmod{m_i}$:
+        \begin{itemize}
+            \item $117 y_1 \equiv 1 \pmod 8 \implies 5 y_1 \equiv 1 \pmod 8 \implies y_1 = 5$
+            \item $104 y_2 \equiv 1 \pmod 9 \implies 5 y_2 \equiv 1 \pmod 9 \implies y_2 = 2$
+            \item $72 y_3 \equiv 1 \pmod{13} \implies 7 y_3 \equiv 1 \pmod{13} \implies y_3 = 2$
+        \end{itemize}
+        
+        \item Solusi $x$ didapatkan sebagai berikut
+        \begin{align*}
+            x &\equiv (a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3) \pmod M \\
+            x &\equiv (7 \cdot 117 \cdot 5 + 5 \cdot 104 \cdot 2 + 11 \cdot 72 \cdot 2) \pmod{936} \\
+            x &\equiv (4095 + 1040 + 1584) \pmod{936} \\
+            x &\equiv 6719 \pmod{936} \\
+            x &\equiv 167 \pmod{936}
+        \end{align*}
+    \end{itemize}
+    Jadi, nilai bulat positif terkecil $x$ yang memenuhi adalah \fbox{167}.
+
+    \item Solusi umum dari sistem kongruensi ini adalah
+    \[ x = 167 + 936k, \quad \text{untuk } k \in \mathbb{Z} \]
+    Kita cari nilai $k$ yang memenuhi ketaksamaan $1000 \leq 167 + 936k \leq 3000$:
+    \begin{align*}
+        1000 - 167 &\leq 936k \leq 3000 - 167 \\
+        833 &\leq 936k \leq 2833
+    \end{align*}
+    Nilai $k$ bulat yang memenuhi adalah $k = 1, 2, 3$.
+    Substitusikan nilai $k$ tersebut
+    \begin{itemize}
+        \item Untuk $k = 1 \implies x = 167 + 936(1) = 1103$
+        \item Untuk $k = 2 \implies x = 167 + 936(2) = 2039$
+        \item Untuk $k = 3 \implies x = 167 + 936(3) = 2975$
+    \end{itemize}
+    Jadi, seluruh nilai $x$ yang memenuhi dalam rentang tersebut adalah \fbox{\{1103, 2039, 2975\}}.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsection*{Soal 10 [Kombinatorika -- Kombinasi dan Inklusi-Eksklusi]}
+\textbf{Solusi:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Misalkan $x_1, x_2, x_3, x_4, x_5$ masing-masing menyatakan banyak porsi takoyaki yang diterima oleh Nagisa, Karma, Kayano, Sugino, dan Okuda. Persamaan linearnya adalah
+    \[ x_1 + x_2 + x_3 + x_4 + x_5 = 25 \]
+    dengan syarat batas
+    \[ x_1 \geq 3, \quad 0 \leq x_2 \leq 4, \quad 0 \leq x_3 \leq 5, \quad x_4 \geq 1, \quad x_5 \geq 0 \]
+
+    \item Lakukan pergeseran variabel untuk batas bawah ($x_1 \geq 3$ dan $x_4 \geq 1$). Definisikan $x_1' = x_1 - 3 \geq 0$ dan $x_4' = x_4 - 1 \geq 0$. Substitusikan ke persamaan:
+    \[ (x_1' + 3) + x_2 + x_3 + (x_4' + 1) + x_5 = 25 \implies x_1' + x_2 + x_3 + x_4' + x_5 = 21 \]
+    dengan $x_1', x_2, x_3, x_4', x_5 \in \mathbb{Z}_{\geq 0}$.
+    
+    Kondisi pelanggaran batas atas $A_1$ (Karma) dan $A_2$ (Kayano) adalah $x_2 \geq 5$ atau $x_3 \geq 6$, secara berturut-turut.
+
+    \begin{enumerate}[label=\arabic*.]
+        \item Total solusi tanpa batas atas ($|S|$).
+        \[ |S| = \binom{21+5-1}{5-1} = \binom{25}{4} = \frac{25 \times 24 \times 23 \times 22}{24} = 12.650 \]
+
+        \item Pelanggaran $A_1$ ($x_2 \geq 5$).
+        Misal $x_2' = x_2 - 5 \ge 0 \implies x_1' + x_2' + x_3 + x_4' + x_5 = 16$:
+        \[ |A_1| = \binom{16+5-1}{5-1} = \binom{20}{4} = \frac{20 \times 19 \times 18 \times 17}{24} = 4.845 \]
+
+        \item Pelanggaran $A_2$ ($x_3 \geq 6$).
+        Misal $x_3' = x_3 - 6 \ge 0 \implies x_1' + x_2 + x_3' + x_4' + x_5 = 15$:
+        \[ |A_2| = \binom{15+5-1}{5-1} = \binom{19}{4} = \frac{19 \times 18 \times 17 \times 16}{24} = 3.876 \]
+
+        \item Pelanggaran $A_1 \cap A_2$ ($x_2 \geq 5$ dan $x_3 \geq 6$):
+        $x_1' + x_2' + x_3' + x_4' + x_5 = 21 - 5 - 6 = 10$:
+        \[ |A_1 \cap A_2| = \binom{10+5-1}{5-1} = \binom{14}{4} = \frac{14 \times 13 \times 12 \times 11}{24} = 1.001 \]
+    \end{enumerate}
+
+   Hitung hasil akhir dengan prinsip inklusi-eksklusi.
+    \begin{align*}
+        \text{Banyak cara valid} &= |S| - |A_1| - |A_2| + |A_1 \cap A_2| \\
+        &= 12.650 - 4.845 - 3.876 + 1.001 \\
+        &= 4.930
+    \end{align*}
+    Jadi, terdapat \fbox{4.930 cara} berbeda membagikan 25 porsi takoyaki tersebut.
 \end{enumerate}
 
 \end{document}
