@@ -14,30 +14,34 @@
 
 \section*{Bagian I: Easy}
 
-\subsection*{Soal 1 [Logika Penalaran -- Inferensi Logika]}
+\subsection*{Soal 1 [Sumasi -- Notasi Sumasi]}
 \textbf{Solusi:} \\
-Misalkan proposisi yang ada dalam bentuk variabel.
-\begin{itemize}
-    \item $p$: Koro-sensei pergi ke bulan.
-    \item $q$: Koro-sensei membawa oleh-oleh batu bulan.
-    \item $r$: Koro-sensei menonton Netflix di rumah.
-\end{itemize}
+Misalkan $S = \sum_{k=0}^{\infty} \frac{5k + B}{6^k}$. Dari soal diketahui bahwa
+\[ \frac{1}{6} \sum_{k=0}^{\infty} \frac{5k + B}{6^k} = 2 \implies S = 12 \]
+Kita dapat mengekspansikan deret $S$ menjadi deret aritmetika dengan geometri tak hingga.
+\[ S = B + \frac{5+B}{6} + \frac{10+B}{6^2} + \frac{15+B}{6^3} + \dots \]
+Kalikan kedua ruas dengan rasio deret, yaitu $\frac{1}{6}$.
+\[ \frac{1}{6} S = \frac{B}{6} + \frac{5+B}{6^2} + \frac{10+B}{6^3} + \dots \]
+Kurangkan $S$ dengan $\frac{1}{6}S$.
+\begin{align*}
+    S - \frac{1}{6} S &= B + \left( \frac{5+B}{6} - \frac{B}{6} \right) + \left( \frac{10+B}{6^2} - \frac{5+B}{6^2} \right) + \dots \\
+    \frac{5}{6} S &= B + \frac{5}{6} + \frac{5}{6^2} + \frac{5}{6^3} + \dots
+\end{align*}
 
-Pernyataan-pernyataan diubah menjadi bentuk proposisi majemuk.
-\begin{enumerate}
-    \item $p \rightarrow q$ (Premis 1)
-    \item $\neg q \lor r \equiv q \rightarrow r$ (Premis 2)
-    \item $p \land \neg r$ (Premis 3)
-\end{enumerate}
+Bentuk di ruas kanan (kecuali suku pertama $B$) merupakan deret geometri tak hingga dengan suku awal $a = \frac{5}{6}$ dan rasio $r = \frac{1}{6}$.
+\begin{align*}
+    \frac{5}{6} S &= B + \frac{\frac{5}{6}}{1 - \frac{1}{6}} \\
+    \frac{5}{6} S &= B + \frac{\frac{5}{6}}{\frac{5}{6}} \\
+    \frac{5}{6} S &= B + 1
+\end{align*}
 
-\textbf{Langkah Inferensi:}
-\begin{itemize}
-    \item Dari premis (3) $p \land \neg r$, menggunakan hukum simplifikasi diperoleh $p$ dan $\neg r$.
-    \item Dari $p$ dan premis (1) $p \rightarrow q$, menggunakan Modus Ponens, diperoleh $q$.
-    \item Dari $q$ dan premis (2) $q \rightarrow r$, menggunakan Modus Ponens, diperoleh $r$.
-    \item Terjadi kontradiksi antara kesimpulan $r$ dengan fakta dari premis (3) bahwa $\neg r$.
-\end{itemize}
-$\therefore$ Rencana Koro-sensei \fbox{tidak konsisten} karena menghasilkan kontradiksi.
+Substitusikan nilai $S = 12$ yang telah kita dapatkan sebelumnya.
+\begin{align*}
+    \frac{5}{6} (12) &= B + 1 \\
+    10 &= B + 1 \\
+    B &= 9
+\end{align*}
+$\therefore$ Nilai dari $B$ adalah \fbox{9}.
 
 \subsection*{Soal 2 [Himpunan -- Kardinalitas]}
 \textbf{Solusi:} \\
@@ -364,6 +368,7 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
 \end{enumerate}
 
 \newpage
+\section*{Bagian III: Hard \& Bonus Anti-LLM}
 \subsection*{Soal 11 [Graf -- Graf Isomorfik, Sirkuit Euler, dan Pewarnaan Graf]}
 \textbf{Solusi:}
 
@@ -409,11 +414,11 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
     \end{tabular}
     \end{center}
     
-    Untuk memperoleh bentuk baku SOP minimal, kita mengelompokkan entri bernilai 1 (dengan memanfaatkan $d_0 = 1$). Kuad $\{0, 1, 3, 2\}$ menghasilkan term $w'x'$. Kuad $\{1, 5, 13, 9\}$ menghasilkan term $y'z$. Kuad $\{1, 3, 5, 7\}$ menghasilkan term $w'z$. Terakhir, pasangan $\{12, 13\}$ menghasilkan term $wxy'$. Maka bentuk baku SOP minimal adalah:
-    \[ \boxed{H_{\text{SOP}}(w,x,y,z) = w'x' + y'z + w'z + wxy'} \]
+    Untuk memperoleh bentuk baku SOP minimal, kita mengelompokkan entri bernilai 1 (dengan memanfaatkan $d_0 = 1$). Kuad $\{0, 1, 3, 2\}$ menghasilkan term $w'x'$. Kuad $\{1, 5, 13, 9\}$ menghasilkan term $y'z$. Kuad $\{5, 7, 13, 15\}$ menghasilkan term $xz$. Terakhir, pasangan $\{12, 13\}$ menghasilkan term $wxy'$. Maka bentuk baku SOP minimal adalah:
+    \[ \boxed{H_{\text{SOP}}(w,x,y,z) = w'x' + y'z + xz + wxy'} \]
 
-    Untuk memperoleh bentuk baku POS minimal, kita mengelompokkan entri bernilai 0 pada peta karnaugh yang menghasilkan bentuk berikut.
-    \[ \boxed{H_{\text{POS}}(w,x,y,z) = (w' + z)(x' + z)(w + y' + z)(w' + x + y')} \]
+    Untuk memperoleh bentuk baku POS minimal, kita mengelompokkan entri bernilai 0 pada peta karnaugh yang menghasilkan pasangan-pasangan $\{4, 6\}$, $\{8, 10\}$, $\{10, 11\}$, dan $\{6, 14\}$. Bentuk baku POS minimalnya adalah:
+    \[ \boxed{H_{\text{POS}}(w,x,y,z) = (w + x' + z)(w' + x + z)(w' + x + y')(x' + y' + z)} \]
 
     \item Diagram rangkaian logika sakelar otomatis kontrol larutan $H(w,x,y,z)$ dari bentuk baku SOP minimal adalah sebagai berikut:
     
@@ -439,7 +444,7 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
 
         \node[above right=1pt of and1.output, font=\small] {$w'x'$};
         \node[above right=1pt of and2.output, font=\small] {$y'z$};
-        \node[above right=1pt of and3.output, font=\small] {$w'z$};
+        \node[above right=1pt of and3.output, font=\small] {$xz$};
         \node[above right=1pt of and4.output, font=\small] {$wxy'$};
 
         \draw (notw.output) -- ++(0.8,0) |- (and1.input 1);
@@ -448,7 +453,7 @@ Akan dibuktikan bahwa $S_n = \frac{1}{1 \cdot 4} + \frac{1}{4 \cdot 7} + \dots +
         \draw (noty.output) -- ++(1.2,0) |- (and2.input 1);
         \draw (z) -- ++(2.2,0) |- (and2.input 2);
 
-        \draw (notw.output) -- ++(0.8,0) |- (and3.input 1);
+        \draw (x) -- ++(0.7,0) |- (and3.input 1);
         \draw (z) -- ++(2.2,0) |- (and3.input 2);
 
         \draw (w) -- ++(0.3,0) |- (and4.input 1);
@@ -521,5 +526,32 @@ Terakhir, lakukan perpangkatan dan perkalian modular secara bertahap.
     M &\equiv 86 \cdot 25 = 2150 \equiv 5 \pmod{143}
 \end{align*}
 Jadi, nilai asli pesan $M$ yang berhasil dipulihkan secara eksplisit adalah \fbox{5}.
+
+\newpage
+\subsection*{Soal 15 [Logika Penalaran -- ANTI LLM, Inferensi Logika]}
+\textbf{Solusi:}\\
+Berdasarkan pernyataan dari Karasuma,
+\begin{itemize}
+    \item Karasuma mengetahui bulan ulang tahun Koro-sensei, tetapi ia bisa yakin mengatakan bahwa Irina juga kurang yakin (tidak mengetahuinya).
+    \item Jika bulannya adalah bulan Januari ataupun Juli, Irina akan langsung tahu kapan ulang tahun Koro-sensei karena tanggal 10 dan 14 hanya muncul tepat sekali pada bulan Januari dan Juli, berturut-turut.
+    \item Oleh karena itu, eliminasi bulan Januari mapun Juli.
+\end{itemize}
+Tanggal yang tersisa adalah 8 Maret, 13 Maret, 5 April, 6 April, 7 April, 5 Mei, 8 Mei, 5 Juni, 8 Juni
+
+Berdasarkan pernyataan dari Irina,
+\begin{itemize}
+    \item Irina mengetahui tanggal ulang tahun Koro-sensei.
+    \item Karena Irina tidak mengetahui bulan ulang tahunnya, eliminasi tanggal (hari) yang muncul lebih dari satu pada kemungkinan tanggal, yaitu 8 Maret, 8 Mei, dan 8 Juni; 5 April, 5 Mei, dan 5 Juni. 
+    \item Eliminasi seluruh kemungkinan tanggal di atas.
+\end{itemize}
+Tanggal yang tersisa adalah 13 Maret, 6 April, 7 April.
+
+Berdasarkan pernyataan Karasuma yang kedua.
+\begin{itemize}
+    \item Karasuma mengetahui tanggal ulang tahunnya juga
+    \item Jika bulannya adalah bulan April, Karasuma masih akan kebingungan karena ada dua kemungkinan tanggal ulang tahun.
+    \item Oleh karena itu, bulan ulang tahun Koro-sensei haruslah Maret
+\end{itemize}
+$\therefore$ Koro-sensei berulang tahun pada \fbox{13 Maret}.
 
 \end{document}

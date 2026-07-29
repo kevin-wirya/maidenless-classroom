@@ -14,14 +14,10 @@
 
 \section*{Bagian I: Easy}
 
-\subsection*{Soal 1 [Logika Penalaran -- Inferensi]}
-Koro-sensei memberikan tiga pernyataan berikut mengenai rencananya setelah mengajar di Kelas 3E.
-\begin{enumerate}[label=(\roman*)]
-    \item Jika Koro-sensei pergi ke bulan, ia akan membawa oleh-oleh batu bulan.
-    \item Koro-sensei tidak membawa oleh-oleh batu bulan atau ia akan menonton Netflix di rumah.
-    \item Koro-sensei pergi ke bulan dan ia tidak menonton Netflix di rumah.
-\end{enumerate}
-Apakah rencana Koro-sensei konsisten? Gunakan aturan inferensi logika untuk menunjukkan hal tersebut.
+\subsection*{Soal 1 [Sumasi -- Notasi Sumasi]}
+Diketahui
+\[ \sum_{k=0}^{\infty} \frac{5k + B}{6^{k+1}} = 2 \]
+Tentukanlah nilai dari $B$.
 
 \subsection*{Soal 2 [Himpunan -- Prinsip Inklusi dan Eksklusi]}
 Dari 100 siswa di Kelas 3E, diketahui bahwa 35 siswa senang bermain sepak bola, 50 siswa senang bermain bulu tangkis, dan 40 siswa senang bermain basket. Diketahui juga bahwa 21 siswa suka bermain sepak bola dan bulu tangkis dan 17 siswa senang bermain bulu tangkis dan basket. Jika diketahui bahwa 9 siswa suka ketiga olahraga tersebut dan terdapat 8 siswa yang tidak suka ketiganya. 
@@ -201,6 +197,18 @@ Analisislah sifat-sifat matematis dari fungsi $f$ tersebut dengan menyelesaikan 
     \item Berdasarkan definisi, buktikan bahwa fungsi $f$ bersifat injektif.
     \item Tentukan seluruh rumus fungsi $f: \mathbb{Z} \to \mathbb{Z}$ yang memenuhi persamaan fungsi di atas.
 \end{enumerate}
+
 \subsection*{Soal 14 [Teori Bilangan -- Algoritma RSA]}
 Ikeda mendeteksi kelemahan protokol enkripsi RSA yang digunakan oleh sistem transmisi Shiro. Shiro menggunakan modulus publik $n = 143$ yang sama untuk dua stasiun penerima, namun menggunakan dua kunci publik eksponen yang berbeda, yaitu $e_1 = 7$ dan $e_2 = 11$. Sebuah pesan rahasia $M$ yang sama dikirimkan ke kedua stasiun penerima tersebut dan menghasilkan dua ciphertext, yaitu $C_1 = 47$ dan $C_2 = 60$. Tanpa melakukan faktorisasi terhadap $n$ dan tanpa mencari kunci privat $d_1$ maupun $d_2$, buktikan bagaimana pesan asli $M$ dapat dipulihkan hanya dengan memanfaatkan kombinasi linier eksponen $r \cdot e_1 + s \cdot e_2 = \gcd(e_1, e_2)$. Hitunglah nilai asli pesan $M$ tersebut secara eksplisit!
+
+\subsection*{Soal 15 - [Logika Penalaran -- ANTI LLM, Inferensi Logika]}
+Guru di Kelas 3-E, Karasuma dan Irina baru saja berkenalan dengan Koro-sensei. Mereka ingin mengetahui tanggal ulang tahun Koro-sensei. Koro-sensei kemudian memberikan 15 kemungkinan tanggal ulang tahunnya. Ia tidak ingin agar para  guru menebak tanggal ulang tahunnya dengan mudah. Tanggal tersebut adalah
+6 Januari, 7 Januari, 10 Januari, 8 Maret, 13 Maret, 5 April, 6 April, 7 April, 5 Mei, 8 Mei, 5 Juni, 8 Juni, 7 Juli, 13 Juli, dan 14 Juli.
+Karasuma tahu bahwa bulan ini adalah bulan saat Koro-sensei berulang tahun karena ia diberitahu oleh anak kelas 3E, namun ia tidak tahu tanggal (hari) ulang tahunnya. Di sisi lain, Irina mengetahui tanggal (hari) ulang tahunnya karena sempat diberitahu oleh Koro-sensei, tetapi ia tidak tahu bulannya. Karasuma dan Irina kemudian berdiskusi sebagai berikut:
+\begin{quote}
+    Karasuma: "Aku tidak yakin kapan Koro-sensei berulang tahun, tetapi aku yakin bahwa Irina juga tidak yakin"\\
+    Irina: "Aku memang tidak yakin kapan ulang tahun Koro-sensei, tapi aku sudah yakin sekarang."\\
+    Karsuma: "Kalau begitu, sekarang aku juga sudah yakin kapan ulang tahun Koro-sensei."
+\end{quote}
+Tentukan tanggal ulang tahun Koro-sensei. Jelaskan langkah berpikirmu.
 \end{document}
